@@ -141,47 +141,6 @@ def track_management(tracks, detections, sigma_iou):
 
     return updated_tracks
 
-"""
-def draw_tracking_results(image_dir, tracks):
-    image_files = sorted(os.listdir(image_dir))
-    
-    # Mapping des identifiants de pistes aux identifiants uniques des objets détectés
-    id_mapping = {}
-    unique_id_counter = 0
-    
-    for track in tracks:
-        for detection in track['detections']:
-            print(detection)
-            obj_id = detection['id']
-            if obj_id not in id_mapping:
-                id_mapping[obj_id] = unique_id_counter
-                unique_id_counter += 1
-    
-    for idx, image_file in enumerate(image_files):
-        image_path = os.path.join(image_dir, image_file)
-        image = cv2.imread(image_path)
-        
-        for track in tracks:
-            for detection in track['detections']:
-                if detection['frame'] == idx:
-                    # Obtenir l'identifiant unique de l'objet détecté
-                    obj_id = id_mapping[detection['id']]
-                    
-                    # Draw bounding box
-                    bb_left = int(detection['bb_left'])
-                    bb_top = int(detection['bb_top'])
-                    bb_width = int(detection['bb_width'])
-                    bb_height = int(detection['bb_height'])
-                    cv2.rectangle(image, (bb_left, bb_top), (bb_left + bb_width, bb_top + bb_height), (0, 255, 0), 2)
-                    
-                    # Draw ID
-                    cv2.putText(image, str(obj_id), (bb_left, bb_top - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
-        
-        cv2.imshow('Tracking Results', image)
-        if cv2.waitKey(100) == 27:  # Attendre 100 ms entre chaque image et vérifier si la touche "Escape" (code ASCII 27) est pressée pour quitter
-            break
-    
-    cv2.destroyAllWindows()"""
 
 def draw_tracking_results(image_dir, tracks, iou_threshold=0.5):
     """

@@ -4,7 +4,7 @@ import cv2
 
 # Usage example chatGPT :
 print("Start test")
-file_path = 'ADL-Rundle-6/det/det.txt'
+file_path = 'TP02/ADL-Rundle-6/det/det.txt'
 print(f"Load the file {file_path}")
 loaded_detections = iou.load_detections(file_path)
 print("load finish")
@@ -24,7 +24,7 @@ print("finish create tracks")
 
 # Définir le chemin vers le dossier contenant les images
 print("Start load all pictures")
-images_folder_path = 'ADL-Rundle-6\img1'  
+images_folder_path = 'TP02/ADL-Rundle-6\img1'  
 # Lire les images du dossier
 image_files = sorted([os.path.join(images_folder_path, file) for file in os.listdir(images_folder_path)])
 print("finish load all picture")
@@ -43,10 +43,7 @@ print(updated_tracks[0])
 print("Finish track_management")
 
 print("Start Drawing")
-# Chemin du dossier contenant les images
-image_folder = 'ADL-Rundle-6/img1'
-
 # Afficher les résultats du suivi
-iou.draw_tracking_results(image_folder, updated_tracks)
+iou.draw_tracking_results(images_folder_path, updated_tracks)
 print("Finish Drawing")
 

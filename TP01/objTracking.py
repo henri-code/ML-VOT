@@ -16,7 +16,7 @@ y_std_meas = 0.1
 ### end variables ###
 
 # Create video capture object
-video_capture = cv2.VideoCapture('TP1_data/randomball.avi')
+video_capture = cv2.VideoCapture('TP01/TP1_data/randomball.avi')
 
 kf = KalmanFilter(dt, u_x, u_y, std_acc, x_std_meas, y_std_meas)
 
